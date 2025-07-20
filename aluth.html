@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login | KAVI-MD</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.7);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #00fff7;
+      text-align: center;
+      animation: float 3s ease-in-out infinite;
+      transition: opacity 1s ease, transform 1s ease;
+      z-index: 2;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+        box-shadow: 0 0 25px #00fff7;
+      }
+      50% {
+        transform: translate(-50%, -50%) translateY(-10px);
+        box-shadow: 0 0 35px #00ffe0;
+      }
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      animation: fadeInDown 1.5s ease;
+    }
+
+    input {
+      padding: 12px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+      width: 80%;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(90deg, #00fff7, #00c8ff);
+      color: #0b0c10;
+      cursor: pointer;
+      transition: background 0.4s, transform 0.3s;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(90deg, #00c8ff, #00fff7);
+      transform: scale(1.05);
+    }
+
+    .business-page {
+      display: none;
+      padding: 40px;
+      animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .business-header {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #66fcf1;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    }
+
+    a.kavi-link {
+      color: #00ffe0;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+  </style>
+
+  <script>
+    function checkLogin(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === "kave-md" && password === "Kavee") {
+        document.querySelector('.login-box').style.opacity = '0';
+        document.querySelector('.login-box').style.transform = 'translate(-50%, -50%) scale(0.9)';
+        setTimeout(() => {
+          document.querySelector('.login-box').style.display = 'none';
+          document.querySelector('.business-page').style.display = 'block';
+        }, 1000);
+      } else {
+        alert("❌ වැරදි Username හෝ Password");
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Login Box -->
+  <div class="login-box">
+    <h2><marquee>KAVI-MD</marquee></h2>
+    <form onsubmit="checkLogin(event)">
+      <input type="text" id="username" placeholder="Username" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <!-- Business Page -->
+  <div class="business-page">
+    <div class="business-header">🎉 Welcome KAVI-MD 🎉</div>
+
+    <div class="card">
+      <h3>අපි ගැන</h3>
+      <p>අපගේ සේවාවන් ඔබට විශ්වාසය සහිතව ලබාදීමට කැපවෙමු.</p>
+    </div>
+
+    <div class="card">
+      <h3>WhatsApp Bot</h3>
+      <p>👇 පහත ලින්ක් එක ක්ලික් කරන්න:</p>
+      <a class="kavi-link" href="https://kavi-x-bot-b2093185b81d.herokuapp.com/" target="_blank">
+        👉 KAVI-X BOT වෙත යන්න
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>සම්බන්ධ වන්න</h3>
+      <p>📞 දුරකථන:+94 70 212 8378</p>
+    </div>
+  </div>
+
+</body>
+</html>
